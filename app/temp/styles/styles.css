@@ -354,7 +354,10 @@ img {
 
 .large-hero {
 	position:relative; /* https://www.w3schools.com/css/tryit.asp?filename=trycss_position_relative
-	                      https://www.w3schools.com/css/tryit.asp?filename=trycss_position_absolute */
+	                      https://www.w3schools.com/css/tryit.asp?filename=trycss_position_absolute 
+
+	                      nemam pojma zasto je stavio relative (ili pogledaj video CSS File archiceture ponovo), vjerovatno ce se kasniej
+	                      otkriti zasto je ova relativna.*/
 }
 
 .large-hero__text-content {
