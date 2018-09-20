@@ -347,48 +347,67 @@ body {
 }
 
 img {
-	max-width:100%; /*Koristi 100% sirine tvog uredjaja!*/
+	max-width:100%; /*Koristi 100% sirine tvog uredjaja kakva god da mu je rezolucija!*/
 	height:auto; /*https://stackoverflow.com/questions/15943009/difference-between-css-height-100-vs-height-auto*/
 	             /*U sustini height 100% ce imati velicinu parent elementa, a "auto" znaci da ce se velicina mjenjat u odnosu na velicinu djece tj. imace velicinu djece.*/
 }
 
 .large-hero {
-	position:relative; /* https://www.w3schools.com/css/tryit.asp?filename=trycss_position_relative
+	position:relative;
+}
+
+/* https://www.w3schools.com/css/tryit.asp?filename=trycss_position_relative
 	                      https://www.w3schools.com/css/tryit.asp?filename=trycss_position_absolute 
 
 	                      nemam pojma zasto je stavio relative (ili pogledaj video CSS File archiceture ponovo), vjerovatno ce se kasniej
 	                      otkriti zasto je ova relativna.*/
-}
 
 .large-hero__text-content {
-	position:absolute; /*korak 1 kada je position:absolute ovaj ce biti pozicioniran relativno u odnosu 
-	                    na prethodni ELEMENT (sto je <img src="assets/images/hero--large.jpg">) i izace iz normalnog document flowa
-	                     ali ce se nalaziti, iako izvan flowa, ODMAH ISPOD img-a. To sto je .large-hero position:relative; nema nikakvog uticaja na ovaj kod! */
-	top: 50%;  /*korak 2*/
-	left: 0; /*korak 2 kada stavis position:absolute on se automatski "vezuje" (tajna veza, jer kad bi izbriso position:absolute; top i left ne rade!) za prethodni element tako da kad mu stavis 
-	                     top:0; i left: 0; on ce biti u tacki (0,0) koordinatnog pocetka tog elementa tj. img eleementa koji sam naveo u k1*/
-             
-             /*korak 4 VERTIKALNO CENTRIRANJE
+			position:absolute; /*korak 1 kada je position:absolute ovaj ce biti pozicioniran relativno u odnosu 
+			                    na prethodni ELEMENT (sto je <img src="assets/images/hero--large.jpg">) i izace iz normalnog document flowa
+			                     ali ce se nalaziti, iako izvan flowa, ODMAH ISPOD img-a. To sto je .large-hero position:relative; nema nikakvog uticaja na ovaj kod! */
+			top: 50%;  /*korak 2*/
+			left: 0; /*korak 2 kada stavis position:absolute on se automatski "vezuje" (tajna veza, jer kad bi izbriso position:absolute; top i left ne rade!) za prethodni element tako da kad mu stavis 
+			                     top:0; i left: 0; on ce biti u tacki (0,0) koordinatnog pocetka tog elementa tj. img eleementa koji sam naveo u k1*/
+		             
+		             /*korak 4 VERTIKALNO CENTRIRANJE
 
-            top:50%; pomjera element za 50% velicine "tajna veza" elementa. Dakle, bukvalno izkalkulise kolika je velicina prethodnog diva
-             podjeli sa 2 i za toliko pomjeri ovaj element u odnosu na top!
-             https://www.w3schools.com/cssref/tryit.asp?filename=trycss_position_top
-            */
+		            top:50%; pomjera element za 50% velicine "tajna veza" elementa. Dakle, bukvalno izkalkulise kolika je velicina prethodnog diva
+		             podjeli sa 2 i za toliko pomjeri ovaj element u odnosu na top!
+		             https://www.w3schools.com/cssref/tryit.asp?filename=trycss_position_top
+		            */
 
-    width:100%; /*korak 3.1*/
-               /*korak 3 je centriranje div elementa horizontalno dakle po x osi*/
-              /*U sustini width 100% ce imati velicinu parent elementa (.large-hero), a "auto" znaci da ce se velicina mjenjat u odnosu na velicinu djece tj. imace velicinu djece.*/
-text-align:center; /*korak 3.2 Ako si prethodno naveo da uzima cjelu velicinu parent elementa onda je dovoljno samo da napises text-align:center i sav tekst unutar klase
-                          unutar klase .large-hero__text-content ce biti centriran u odnosu na velicine diva.
-                          Stavi background-color:red pa probaj iskljucivati text-align ili promjeni width na auto pa ces shvatiti*/
-                   /*height:100% implies the element is going to have the 100% height of its parent container.
+		    width:100%; /*korak 3.1*/
+		               /*korak 3 je centriranje div elementa horizontalno dakle po x osi*/
+		              /*U sustini width 100% ce imati velicinu parent elementa (.large-hero), a "auto" znaci da ce se velicina mjenjat u odnosu na velicinu djece tj. imace velicinu djece.*/
+		 text-align:center; /*korak 3.2 Ako si prethodno naveo da uzima cjelu velicinu parent elementa onda je dovoljno samo da napises text-align:center i sav tekst unutar klase
+		                          unutar klase .large-hero__text-content ce biti centriran u odnosu na velicine diva.
+		                          Stavi background-color:red pa probaj iskljucivati text-align ili promjeni width na auto pa ces shvatiti*/
+		                   /*height:100% implies the element is going to have the 100% height of its parent container.
 
-                     height:auto means, the element will have flexible height i.e. its height will depend upon the height of
-                       children elements of it
+		                     height:auto means, the element will have flexible height i.e. its height will depend upon the height of
+		                       children elements of it
 
-                   A posto su u ovom slucaju od klase .large-hero__text-content djeca: <h1> <p> onda ce on uzeti velicinu <h1> tj najprvog djeteta.*/
-  -webkit-transform: translateY(-50%);
-          transform: translateY(-50%);                /*korak 5 pomjeras za pola visine diva .large-hero__text-content
-                                  100% -> pomjeri cjeli div za 100% njegove visine po Y osi*/
-  
-}
+		                   A posto su u ovom slucaju od klase .large-hero__text-content djeca: <h1> <p> onda ce on uzeti velicinu <h1> tj najprvog djeteta.*/
+		  -webkit-transform: translateY(-50%);
+		          transform: translateY(-50%);                /*korak 5 pomjeras za pola visine diva .large-hero__text-content
+		                                  100% -> pomjeri cjeli div za 100% njegove visine po Y osi*/
+		}
+
+/*& trik je u tome da kada ovo napises direktno ce se u style.css tempu kreirati umjesto toga ime klase u kojoj se & nalazi. 
+		npr. da si samo napisao ovdje & tamo bi imao JEDNU ISPOD DRUGE (dakle, ne narusava BEM) klase .large-hero {} .large-hero. 
+		Logika je jasna: Ako & mjenja ime klase u kojoj se nalazi i kreira je ispod onda samo dodaj __title npr. */
+
+.large-hero__title { /*Ovo je nekad bilo odvojeno, a sad je nested. Kada bi je direktno stavio bez koristenja & trika narusio bi BEM jer bi
+		                       onda dobio .large-hero .large-hero__title{} a u BEMu se izbjegava da imas parent i ta sranja.  */
+			font-weight: 300;
+			color: #2f5572;
+			font-size: 4.8rem; /*Bice objasnjeno dalje u kursu zasto se rem koristi.*/
+		}
+
+.large-hero__subtitle { /*Ovo je nekad bilo odvojeno, a sad je nested. Kada bi je direktno stavio bez koristenja & trika narusio bi BEM jer bi
+		                       onda dobio .large-hero .large-hero__title{} a u BEMu se izbjegava da imas parent i ta sranja.  */
+				font-weight: 300;
+				color: #2f5572;
+				font-size: 2.9rem;
+		}
