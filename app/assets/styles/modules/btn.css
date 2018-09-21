@@ -1,0 +1,19 @@
+.btn {
+	background-color: $mainBlue;
+	color: #FFF;
+	text-decoration: none; /* da unistis underline */
+	padding: .75rem 1.2rem; /* da bude dugme taj <a>. prvi je za top/bottom drugi za left/right*/
+	display: inline-block; /*it's parent and surounding elements will be aware of it's vertical padding 
+	                        najbolje objasnjeno na primjeru: https://www.w3schools.com/css/tryit.asp?filename=trycss_inline-block_span1 
+	                        pri cemu trebas obrisat height i width na sve elemente da shvatis o cemu se radi.
+	                        ili ukucaj display: inline-block; na w3schools */
+
+	  &--orange {
+	  	background-color: $mainOrange;
+	  }
+
+	 &--large {
+	 	font-size: 1.25rem;
+	 	padding: 1.1rem 1.9rem;
+	 }
+}

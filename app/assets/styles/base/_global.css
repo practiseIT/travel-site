@@ -4,7 +4,7 @@ body {
 }
 
 img {
-	max-width:100%; /*Koristi 100% sirine tvog uredjaja kakva god da mu je rezolucija!*/
+	max-width: 100%; /*Koristi 100% sirine tvog uredjaja kakva god da mu je rezolucija!*/
 	height:auto; /*https://stackoverflow.com/questions/15943009/difference-between-css-height-100-vs-height-auto*/
 	             /*U sustini height 100% ce imati velicinu parent elementa, a "auto" znaci da ce se velicina mjenjat u odnosu na velicinu djece tj. imace velicinu djece.*/
 }

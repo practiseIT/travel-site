@@ -4,7 +4,8 @@ postcss = require('gulp-postcss'),
 autoprefixer = require('autoprefixer'),
 cssvars = require('postcss-simple-vars'),
 nested = require('postcss-nested'),
-cssImport = require('postcss-import');
+cssImport = require('postcss-import'),
+browserSync = require('browser-sync').create() /*hoces samo metodu create() od ovog package-a da requireujes*/;
 
 
 gulp.task("default", function(){
@@ -23,13 +24,28 @@ gulp.task("styles", function(){
 
 gulp.task("watch", function(){
 
+	browserSync.init({ 
+         notify: false, /*gasi ono u desnom gornjem cosku sto pokauje sta se pokrece*/
+
+		/* Ovo je prvi korak u kreiranju auto refreshera. init = initialize (server)*/
+      server: { /*create server gdje je base directory app folder*/
+      	baseDir: "app" /* base directory, vidi komentar ispod*/
+      } /*where website lives. jer kreira ovaj sync neki mini-server na racunaru i treba mu adresa*/
+	});
+
 	watch("./app/index.html", function(){ // "./" root folder
-        gulp.start('html'); //pokreni html task
+        browserSync.reload(); /* Ovo je drugi korak u kreiranju auto refreshera. Bukvalno reload je "refresh", a cjela ova funkciaj znaci "refreshuj stranicu kada se sacuva neka promjena
+        u index.html" */
 	});
 
 	watch("./app/assets/styles/**/*.css", function(){
 
-		gulp.start('styles');
+		gulp.start('cssInject');
 	}); // "**" any future hypotetical folders, "*.css" any files sa .css ekstenzijom
 
+});
+
+gulp.task('cssInject', ['styles'], function() {
+        return gulp.src('./app/temp/styles/styles.css')
+        .pipe(browserSync.stream());
 });
