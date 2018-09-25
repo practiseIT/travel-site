@@ -42,7 +42,7 @@
 		                       onda dobio .large-hero .large-hero__title{} a u BEMu se izbjegava da imas parent i ta sranja.  */
 			font-weight: 300;
 			color: $mainBlue;
-			font-size: 4.8rem; /*Bice objasnjeno dalje u kursu zasto se rem koristi.*/
+			font-size: 4.8rem; /*Bice objasnjeno dalje u kursu zasto se rem koristi. Relative to the root of the page (font-size, itd.)*/
 			margin:0;
 		}
 
@@ -58,13 +58,13 @@
 		&__description {
 			        color: #FFF;
 			        font-size: 1.875rem;
-			        font-weight: 100;
+			        font-weight: 100; /*Utanjivanje ili udebljavanje teksta.*/
 			        text-shadow: 2px 2px 0 rgba(0,0,0, .1); /*prvi kontrolise po x osi pomjeranje shadowa, drugi po y osi, 0 znaci jacina blura
 			                                                  rgba(0,0,0, 0.1) definise boju (crna) i opacity shadowa .1*/
 			        max-width: 30rem; /* K1 Ovo ti je on izracuno 480px jer u Photoshop fajlu za diajn vidio je da poslije rjeci journeys sledece
 			                            sve ide u novi red. ALI K1.1 pretvorili smo da 16*x bude 480  tj x=30rems. */
 			        margin-left: auto; /*K2 Posto kada dodjelis samo max-width 480px on ce vratiti cjeli __description na pocetak kao da je*/
-			        margin-right: auto; /* left=0 tako da moras koristiti ovo margin-left i margin-right na auto da bi ga opet centrirao
+			        margin-right: auto; /* left=0 tj. ti overwriteujes od parent elementa width:100% tako da moras koristiti ovo margin-left i margin-right na auto da bi ga opet centrirao
 			                               Probaj bez mar-left i mar-right, a samo ostavi max-width pa ces vidjeti o cemu ti pricam 
 
 			                               Kada stavis lijevu i desnu auto the element will take up the width you specify, then the remaining space will be 
