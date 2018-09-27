@@ -5,11 +5,12 @@ postcss = require('gulp-postcss'),
 autoprefixer = require('autoprefixer'),
 cssvars = require('postcss-simple-vars'),
 nested = require('postcss-nested'),
-cssImport = require('postcss-import');
+cssImport = require('postcss-import'),
+mixins = require('postcss-mixins');
 
 gulp.task("styles", function(){
       return gulp.src("./app/assets/styles/styles.css")
-        .pipe(postcss([cssImport, cssvars, nested, autoprefixer])) //zasto moraju biti ovako poredani ovi filteri?
+        .pipe(postcss([cssImport, mixins, cssvars, nested, autoprefixer])) //zasto moraju biti ovako poredani ovi filteri?
         /* OVO TI JE DA TI GULP POMOGNE GDJE JE ERROR ALI I DA NE PRESTANE RADITI WATCH KADA NAPRAVIS GRESKU*/
         /* 'error' je name of the event. on(error) <=> if the error occurs, "on error (koji se inace desava)" we want THIS task,
         THIS stream (this.emit) to tell gulp (to emit to gulp) .emit  that it tried it's best but it's now to bring this to the

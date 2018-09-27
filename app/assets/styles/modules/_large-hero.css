@@ -42,17 +42,42 @@
 		                       onda dobio .large-hero .large-hero__title{} a u BEMu se izbjegava da imas parent i ta sranja.  */
 			font-weight: 300;
 			color: $mainBlue;
-			font-size: 4.8rem; /*Bice objasnjeno dalje u kursu zasto se rem koristi. Relative to the root of the page (font-size, itd.)*/
 			margin:0;
+			font-size: 1.1rem; /*For supertiny screens, atSmallest.*//*Bice objasnjeno dalje u kursu zasto se rem koristi. Relative to the root of the page (font-size, itd.)
+			                    Kreces od mobile first, zato si stavio 1.1 rem a dole u media ispod 4.8rem*/
+		
+		/*prije mixina se koristilo ovako @media (minwidth:530) {font-size:4.8rem;} media query bukvalno znaci ova linija "if a screen is min-width 530px then font-size:4.8rem;"*/
+        
+        /*mixin = reusable bit of code */
+        @mixin atSmall {
+        	font-size: 2rem;
+        }
+
+        @mixin atMedium {
+        	font-size: 3.2rem;
+        }
+        
+        @mixin atLarge {
+        	font-size: 4.8rem;
+        }
+
+
 		}
 
 
 		&__subtitle { /*Ovo je nekad bilo odvojeno, a sad je nested. Kada bi je direktno stavio bez koristenja & trika narusio bi BEM jer bi
 		                       onda dobio .large-hero .large-hero__title{} a u BEMu se izbjegava da imas parent i ta sranja.  */
 				font-weight: 300;
-				color: $mainBlue;
-				font-size: 2.9rem;
+				color: $mainBlue; 
+				font-size: 1.1rem; /*atSmallest je ovo bukvalno, da te ne buni zasto atSmall*/
 				margin:0;
+
+
+				@mixin atSmall {
+					font-size:2.9rem;
+				}
+
+
 		}
 
 		&__description {

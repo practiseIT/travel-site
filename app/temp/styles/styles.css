@@ -402,17 +402,64 @@ img {
 		                       onda dobio .large-hero .large-hero__title{} a u BEMu se izbjegava da imas parent i ta sranja.  */
 			font-weight: 300;
 			color: #2f5572;
-			font-size: 4.8rem; /*Bice objasnjeno dalje u kursu zasto se rem koristi. Relative to the root of the page (font-size, itd.)*/
 			margin:0;
+			font-size: 1.1rem; /*For supertiny screens, atSmallest.*/
+
+
 		}
+
+/*mixin = reusable bit of code */
+
+@media (min-width: 530px) {
+
+.large-hero__title {
+        	font-size: 2rem /*sta god da je sadrzaj tog mixina tj na sta god da se odnosi*/
+
+
+		}
+	}
+
+/*prije mixina se koristilo ovako @media (minwidth:530) {font-size:4.8rem;} media query bukvalno znaci ova linija "if a screen is min-width 530px then font-size:4.8rem;"*/
+
+@media (min-width: 800px) {
+
+.large-hero__title {
+        	font-size: 3.2rem
+
+
+		}
+	}
+
+/*Bice objasnjeno dalje u kursu zasto se rem koristi. Relative to the root of the page (font-size, itd.)
+			                    Kreces od mobile first, zato si stavio 1.1 rem a dole u media ispod 4.8rem*/
+
+@media (min-width: 1200px) {
+
+.large-hero__title {
+        	font-size: 4.8rem
+
+
+		}
+	}
 
 .large-hero__subtitle { /*Ovo je nekad bilo odvojeno, a sad je nested. Kada bi je direktno stavio bez koristenja & trika narusio bi BEM jer bi
 		                       onda dobio .large-hero .large-hero__title{} a u BEMu se izbjegava da imas parent i ta sranja.  */
 				font-weight: 300;
-				color: #2f5572;
-				font-size: 2.9rem;
+				color: #2f5572; 
+				font-size: 1.1rem; /*atSmallest je ovo bukvalno, da te ne buni zasto atSmall*/
 				margin:0;
+
+
 		}
+
+@media (min-width: 530px) {
+
+.large-hero__subtitle {
+					font-size:2.9rem /*sta god da je sadrzaj tog mixina tj na sta god da se odnosi*/
+
+
+		}
+	}
 
 .large-hero__description {
 			        color: #FFF;
